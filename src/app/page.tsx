@@ -1,5 +1,6 @@
-'use client'
-import { useState, useEffect } from "react";
+'use client' // Mark the component as client-side
+
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
@@ -22,7 +23,6 @@ export default function Home() {
     if (cuisine) params.cuisine = cuisine;
     if (prepTime) params.prepTime = prepTime;
 
-    // Використовуємо URLSearchParams без переписування змінної params
     const queryString = new URLSearchParams(params).toString();
     router.push(`/recipes?${queryString}`);
   };
@@ -50,7 +50,6 @@ export default function Home() {
               placeholder="Search for a recipe..."
               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
-
             <select
               value={cuisine}
               onChange={handleCuisineChange}
@@ -61,7 +60,6 @@ export default function Home() {
               <option value="mexican">Mexican</option>
               <option value="chinese">Chinese</option>
             </select>
-
             <input
               type="number"
               value={prepTime}
@@ -69,7 +67,6 @@ export default function Home() {
               placeholder="Max preparation time (minutes)"
               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
-
             <button
               type="button"
               onClick={handleNextClick}
@@ -84,13 +81,13 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer */}
       <footer className="w-full bg-gray-900 text-white text-center py-4 relative z-10">
         <p>&copy; 2025 Recipe Finder. All rights reserved.</p>
       </footer>
     </div>
   );
 }
+
 
 function MeatballRain() {
   const [meatballs, setMeatballs] = useState([]);
