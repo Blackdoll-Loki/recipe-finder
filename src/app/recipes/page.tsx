@@ -62,30 +62,29 @@ export default function RecipesPage() {
     <div className="min-h-screen bg-blue-50 py-8">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">Recipes</h2>
-        {/* Тут можна додати інтерфейс для зміни параметрів */}
         <div>
           <button
             onClick={() => updateSearchParams({ search: 'pizza', cuisine: 'italian' })}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md"
+            className="px-4 py-2 bg-blue-500 text-white rounded-md mb-6"
           >
             Set New Params
           </button>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {recipes.map((recipe) => (
             <div
-              key={recipe.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
-              onClick={() => handleRecipeClick(recipe.id)}
+            key={recipe.id}
+            className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer mb-6" // додав mb-6 для відступу між картками
+            onClick={() => handleRecipeClick(recipe.id)}
             >
-              <img
-                src={recipe.image}
-                alt={recipe.title}
-                width={400}
-                height={250}
-                className="w-full h-56 object-cover"
-              />
-              <div className="p-4">
+            <img
+              src={recipe.image}
+              alt={recipe.title}
+              width={400}
+              height={250}
+              className="w-full h-56 object-cover"
+            />
+            <div className="p-4">
                 <h3 className="text-xl font-semibold text-gray-800">{recipe.title}</h3>
               </div>
             </div>
@@ -95,3 +94,6 @@ export default function RecipesPage() {
     </div>
   );
 }
+
+
+

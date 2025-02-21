@@ -35,8 +35,6 @@ export default function Home() {
         </div>
       </header>
 
-      <MeatballRain />
-
       <main className="flex-1 flex items-center justify-center px-6">
         <div className="bg-white p-8 shadow-lg rounded-lg max-w-lg w-full relative z-10">
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
@@ -88,45 +86,3 @@ export default function Home() {
   );
 }
 
-
-function MeatballRain() {
-  const [meatballs, setMeatballs] = useState([]);
-
-  useEffect(() => {
-    const newMeatballs = Array.from({ length: 20 }).map((_, i) => ({
-      id: i,
-      left: Math.random() * 100 + "vw", 
-      animationDuration: Math.random() * 3 + 2 + "s",
-    }));
-    setMeatballs(newMeatballs);
-  }, []);
-
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {meatballs.map((meatball) => (
-        <div
-          key={meatball.id}
-          className="absolute top-0 text-3xl"
-          style={{
-            left: meatball.left,
-            animation: `fall ${meatball.animationDuration} linear infinite`,
-          }}
-        >
-          🧆
-        </div>
-      ))}
-      <style>{`
-        @keyframes fall {
-          from {
-            transform: translateY(-100px);
-            opacity: 1;
-          }
-          to {
-            transform: translateY(100vh);
-            opacity: 0;
-          }
-        }
-      `}</style>
-    </div>
-  );
-}
