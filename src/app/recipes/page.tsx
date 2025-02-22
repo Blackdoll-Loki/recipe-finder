@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import MeatballRain from '../components/MeatBall';
 
 interface Recipe {
   id: number;

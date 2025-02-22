@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import SelectCuisine from './components/SelectsCuisine';
+import MeatballRain from './components/MeatBall';
 
 export default function Home() {
   const router = useRouter();
@@ -30,6 +31,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col relative bg-blue-100 overflow-hidden">
+      <MeatballRain />
+
       <header className="w-full bg-white shadow-md p-4 fixed top-0 left-0 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-800">🍽️ Recipe Finder</h1>
