@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import Summary from './components/Summary';
+import Summary from '../../components/Summary';
 
 interface Ingredient {
   id: number;
@@ -26,16 +26,15 @@ export default function RecipeDetailPage() {
   const [recipe, setRecipe] = useState<RecipeDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Витягування ID рецепту з шляху
-  const recipeId = pathname?.split('/').pop(); // ID буде після останнього "/"
+  const recipeId = pathname?.split('/').pop(); 
 
   useEffect(() => {
-    if (!recipeId) return; // Якщо немає ID, не робимо запит
+    if (!recipeId) return; 
 
     const fetchRecipeDetail = async () => {
       const apiKey = 'da29a56b072b4242b9ec8ad0e60e77ed';
       const url = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`;
-      console.log('Fetching URL:', url); // Для діагностики
+      console.log('Fetching URL:', url); 
 
       try {
         const res = await fetch(url);

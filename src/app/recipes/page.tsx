@@ -1,4 +1,4 @@
-'use client' // Mark the component as client-side
+'use client' 
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -23,7 +23,6 @@ export default function RecipesPage() {
     const fetchData = async () => {
       const apiKey = 'da29a56b072b4242b9ec8ad0e60e77ed';
 
-      // Формуємо URL для API із параметрів searchParams
       const url = `https://api.spoonacular.com/recipes/complexSearch?query=${search}&cuisine=${cuisine}&maxReadyTime=${prepTime}&apiKey=${apiKey}`;
 
       try {
@@ -39,13 +38,12 @@ export default function RecipesPage() {
     };
 
     fetchData();
-  }, [search, cuisine, prepTime]); // Перезапуск fetchData при зміні параметрів
+  }, [search, cuisine, prepTime]); 
 
   const handleRecipeClick = (id: number) => {
     router.push(`/recipes/${id}`);
   };
 
-  // Функція для оновлення searchParams в URL
   const updateSearchParams = (newParams: Record<string, string>) => {
     const newUrl = new URL(window.location.href);
     Object.keys(newParams).forEach((key) => {
@@ -74,7 +72,7 @@ export default function RecipesPage() {
           {recipes.map((recipe) => (
             <div
             key={recipe.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer mb-6" // додав mb-6 для відступу між картками
+            className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer mb-6" 
             onClick={() => handleRecipeClick(recipe.id)}
             >
             <img
