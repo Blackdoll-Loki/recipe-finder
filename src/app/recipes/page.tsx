@@ -15,9 +15,12 @@ export default function RecipesPage() {
   const [error, setError] = useState<string | null>(null);
   const searchParams = useSearchParams();
 
-  const search = searchParams.get('search') || 'borsch';
+  const search = searchParams.get('query') || 'borsch';
+  console.log('search',search)
   const cuisine = searchParams.get('cuisine') || 'ukrainian';
+  console.log('cuisine',cuisine)
   const prepTime = searchParams.get('prepTime') || '200';
+  console.log('prepTime',prepTime)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,30 +47,12 @@ export default function RecipesPage() {
     router.push(`/recipes/${id}`);
   };
 
-  const updateSearchParams = (newParams: Record<string, string>) => {
-    const newUrl = new URL(window.location.href);
-    Object.keys(newParams).forEach((key) => {
-      if (newParams[key]) {
-        newUrl.searchParams.set(key, newParams[key]);
-      }
-    });
-    router.push(newUrl.toString());
-  };
-
   if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="min-h-screen bg-blue-50 py-8">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">Recipes</h2>
-        <div>
-          <button
-            onClick={() => updateSearchParams({ search: 'pizza', cuisine: 'italian' })}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md mb-6"
-          >
-            Set New Params
-          </button>
-        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {recipes.map((recipe) => (
             <div

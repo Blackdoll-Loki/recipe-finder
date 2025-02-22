@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import Summary from '../../components/Summary';
 
 interface Ingredient {
   id: number;
@@ -19,6 +18,7 @@ interface RecipeDetail {
   preparationMinutes: number;
   servings: number;
   summary: string;
+  instructions: string;
 }
 
 export default function RecipeDetailPage() {
@@ -27,7 +27,7 @@ export default function RecipeDetailPage() {
   const [error, setError] = useState<string | null>(null);
 
   const recipeId = pathname?.split('/').pop(); 
-
+  console.log('recipe', recipe)
   useEffect(() => {
     if (!recipeId) return; 
 
@@ -49,6 +49,7 @@ export default function RecipeDetailPage() {
           preparationMinutes: data.preparationMinutes,
           servings: data.servings,
           summary: data.summary,
+          instructions: data.instructions,
         });
       } catch (error) {
         setError('Something went wrong!');
@@ -80,23 +81,8 @@ export default function RecipeDetailPage() {
           <p><strong>Preparation Time:</strong> {recipe.preparationMinutes} minutes</p>
           <p><strong>Servings:</strong> {recipe.servings}</p>
           <section><strong>Summary:</strong>
-            <Summary 
-              protein="27g"
-              fat="20g"
-              calories="614"
-              servings={recipe.servings}
-              costPerServing="4.01"
-              likes={2}
-              ingredients={['pepper', 'onion', 'thyme', 'eggplant']}
-              preparationTime="45 minutes"
-              celebrationEvent="Fourth of July"
-              score="69"
-              similarRecipes={[
-                { title: 'Summer Grilled Vegetable Pizza', url: 'https://spoonacular.com/recipes/summer-grilled-vegetable-pizza-241631' },
-                { title: 'Summer Vegetable Pizza with a Cauliflower Crust', url: 'https://spoonacular.com/recipes/summer-vegetable-pizza-with-a-cauliflower-crust-604011' },
-                { title: 'Summer Time Vegetable Pizza Pie', url: 'https://spoonacular.com/recipes/summer-time-vegetable-pizza-pie-511390' }
-              ]}
-            />
+          <p>{recipe.summary}</p>
+          <p>{recipe.instructions}</p>
           </section>
         </div>
       </div>
