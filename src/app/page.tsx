@@ -1,10 +1,10 @@
 import MeatballRain from '../components/MeatBall';
 import SearchForm from '../components/SearchForm';
 
-export default function Home() {
+export default function Home() {  
   return (
     <div className="min-h-screen flex flex-col relative bg-blue-100 overflow-hidden">
-      <MeatballRain />
+     <MeatballRain />
 
       <header className="w-full bg-white shadow-md p-4 fixed top-0 left-0 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center">

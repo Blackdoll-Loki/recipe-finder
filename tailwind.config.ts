@@ -12,6 +12,15 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        fall: {
+          "0%": { transform: "translateY(-10vh)", opacity: "1" },
+          "100%": { transform: "translateY(110vh)", opacity: "0" },
+        },
+      },
+      animation: {
+        fall: "fall var(--fall-duration, 3s) linear forwards",
+      },
     },
   },
   plugins: [],
