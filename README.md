@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Name
 
-## Getting Started
+## Overview
+This is a Next.js application using Turbopack for fast development. The project is designed to be scalable, optimized, and easy to work with. Below, you'll find instructions on how to set up, build, and run the application.
 
-First, run the development server:
+## Features
+- Built with **Next.js** and **Turbopack** for optimized performance.
+- Uses **TypeScript** for better maintainability.
+- Includes **ESLint** for code quality enforcement.
 
-```bash
+## Installation
+Make sure you have **Node.js** and **npm** (or **yarn**) installed on your system.
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/Blackdoll-Loki/recipe-finder.git
+   cd project-name
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+   or
+   ```sh
+   yarn install
+   ```
+
+## Development
+To start the development server with Turbopack:
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+This will run the application in development mode, allowing hot module replacement for a fast workflow.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Building the Project
+To create a production build:
+```sh
+npm run build
+```
+This command generates an optimized build of the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running in Production
+After building, you can start the production server with:
+```sh
+npm run start
+```
+This will serve the optimized version of the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Linting
+To check for linting errors:
+```sh
+npm run lint
+```
+This will ensure code consistency and best practices.
 
-## Learn More
+## Contributing
+Feel free to submit issues and pull requests to improve this project.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
