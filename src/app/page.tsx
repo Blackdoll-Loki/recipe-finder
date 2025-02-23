@@ -1,5 +1,5 @@
-import MeatballRain from './components/MeatBall';
-import SearchForm from './components/SearchForm';
+import MeatballRain from '../components/MeatBall';
+import SearchForm from '../components/SearchForm';
 
 export default function Home() {
   return (
