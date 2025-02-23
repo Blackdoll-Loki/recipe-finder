@@ -1,4 +1,4 @@
-import { useState } from "react";
+'use client'
 
 interface SelectCuisineProps{
   cuisine: string;

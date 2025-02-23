@@ -16,7 +16,7 @@ export default function SearchForm (){
   const handleCuisineChange = (e: React.ChangeEvent<HTMLSelectElement>) => setCuisine(e.target.value);
   const handlePrepTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => setPrepTime(e.target.value);
 
-  const isNextButtonEnabled = query && cuisine && prepTime;
+  const isNextButtonEnabled = query || cuisine || prepTime;
 
   const handleNextClick = () => {
     const params: Record<string, string> = {};
